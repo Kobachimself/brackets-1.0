@@ -30,8 +30,28 @@
         // Function to handle form submission
         document.getElementById('registerForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
-            // You can add validation here if needed
-            this.submit(); // Submit the form
+
+            // Perform form validation here if needed
+            
+            // Submit the form using AJAX
+            let formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // If registration is successful, redirect to login page
+                    window.location.href = 'login.html';
+                } else {
+                    // Handle error response from server
+                    alert('Registration failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while processing your request. Please try again later.');
+            });
         });
     </script>
 </body>
