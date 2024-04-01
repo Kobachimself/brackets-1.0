@@ -14,13 +14,23 @@
     <h1 style="text-align: center;">Tournament - RedstoneMC - Login</h1>
     <div class="loginPanel">
         <h2>Login</h2>
-        <label for="user">Username:</label>
-        <input type="text" name="user" id="username" placeholder="Username" class="inputs"> <br><br>
-        <label for="pass">Password:</label>
-        <input type="text" placeholder="Password" type="password" name="pass" id="password" class="inputs">
-        <br><br><button>Submit</button><br><br>
+        <form id="loginForm" action="login.php" method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Username" class="inputs"> <br><br>
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Password" name="password" id="password" class="inputs">
+            <br><br><button type="submit">Submit</button><br><br>
+        </form>
         <a href="signup.html">Don't have an account? Sign up here!</a>
     </div>
 
+    <script>
+        // Function to handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // You can add validation here if needed
+            this.submit(); // Submit the form
+        });
+    </script>
 </body>
 </html>
