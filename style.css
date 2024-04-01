@@ -1,0 +1,181 @@
+body {
+    background: url(img/bg2\ test.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: red;
+    color: white;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    --bracket-line-color: #ff0000;
+    --bracket-line-width: 2px;
+    --bracket-line-width-half: calc(var(--bracket-line-width) / 2);
+    --bracket-match-border-width: 2px;
+    --bracket-match-bg-color: #ff0040;
+    --bracket-match-font-color: #fff;
+    --bracket-Player-margin: 10px;
+    --bracket-Player-height: 30px;
+    --bracket-match-margin: 20px;
+    --bracket-match-height: calc(var(--bracket-match-margin) * 2 + var(--bracket-Player-height) * 2);
+}
+
+.bracket {
+    display: flex;
+    flex: 3 1 auto;
+}
+
+.bracket.reverse {
+    flex-direction: row-reverse;
+}
+
+.bracket.final {
+    flex-grow: 1;
+}
+
+.round, .match {
+    display: flex;
+    flex-direction: column;
+}
+
+.round, .match, .Player {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.round {
+    flex: 1 1 auto;
+    justify-content: space-around;
+}
+
+.round > h3 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+}
+
+.match {
+    margin: var(--bracket-match-margin) 0;
+    justify-content: center;
+}
+
+.match > h3 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: calc(var(--bracket-Player-height) * -1);
+}
+
+.round:nth-child(2) .match {
+    height: calc(var(--bracket-match-height) + var(--bracket-line-width));
+    max-height: calc(var(--bracket-match-height) + var(--bracket-line-width));
+}
+
+.round:nth-child(3) .match {
+    height: calc(var(--bracket-match-height) * 2 + var(--bracket-line-width));
+    max-height: calc(var(--bracket-match-height) * 2 + var(--bracket-line-width));
+}
+
+.bracket.forward .round:nth-child(2) .match, .bracket.forward .round:nth-child(3) .match {
+    border-left: var(--bracket-line-width) solid var(--bracket-line-color);
+}
+
+.bracket.reverse .round:nth-child(2) .match, .bracket.reverse .round:nth-child(3) .match {
+    border-right: var(--bracket-line-width) solid var(--bracket-line-color);
+}
+
+.Player {
+    height: var(--bracket-Player-height);
+    max-height: var(--bracket-Player-height);
+}
+
+.Player:first-child {
+    border-bottom: var(--bracket-line-width-half) solid var(--bracket-line-color);
+}
+
+.Player:last-child {
+    border-top: var(--bracket-line-width-half) solid var(--bracket-line-color);
+}
+
+.Player span {
+    display: flex;
+    color: var(--bracket-match-font-color);
+    background: var(--bracket-match-bg-color);
+    margin: 0 var(--bracket-Player-margin);
+    padding: 5px;
+    box-sizing: border-box;
+    border: var(--bracket-line-width-half) solid var(--bracket-line-color);
+    height: var(--bracket-Player-height);
+}
+
+.Player:last-child span {
+    border-top: 0;
+}
+
+.bracket.forward .round:nth-child(1) .Player span, .bracket.reverse .round:nth-child(3) .Player span {
+    margin-left: 0;
+}
+
+.bracket.reverse .round:nth-child(1) .Player span, .bracket.forward .round:nth-child(3) .Player span {
+    margin-right: 0;
+}
+
+.bracket.reverse .round:nth-child(1) .Player span {
+    margin-left: var(--bracket-Player-margin);
+}
+
+.match.third .Player span, .match.final .Player span {
+    margin: 0;
+    background: rgb(122,0,0);
+    background: linear-gradient(0deg, rgba(122,0,0,1) 0%, rgba(255,0,0,1) 100%);
+}
+
+
+.nav {
+    background: #ff0040;
+    background: linear-gradient(0deg, rgba(122,0,0,1) 0%, rgba(255,0,0,1) 100%);
+    padding: 15px;
+    text-align: center;
+}
+
+.navLink {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    margin: 5px;
+}
+
+.navLink:hover {
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.conatins {
+    background-color: rgba(0, 0, 0, 0.562);
+    margin: auto;
+    width: 50vw;
+    display: block;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+
+.conatins2 {
+    background-color: rgba(0, 0, 0, 0.562);
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
